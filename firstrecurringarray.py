@@ -16,4 +16,4 @@ def firstrecurringarray(l):
         else:
             r=l[left]
             return r
-print(firstrecurringarray([1,3,4,5,6,7,3,2]))
+print(firstrecurringarray(list(range(55))))
