@@ -96,7 +96,18 @@ class BinarySearchTree:
             currentNode = self.root
             while currentNode:
                 return None
-
+    
+    def largest(self):
+        if self.root is None:
+            return None
+        else:
+            r=self.min()
+            maxNode=self.root
+            while maxNode:
+                if maxNode.right is not None:
+                    maxNode=maxNode.right
+                    break                
+            return maxNode.value
          
 
 bst = BinarySearchTree()
@@ -110,3 +121,4 @@ bst.insert(7)
 ##print(bst.lookup(7))  
 
 print(bst.min())  
+print(bst.largest())
