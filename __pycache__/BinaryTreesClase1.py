@@ -101,13 +101,52 @@ class BinarySearchTree:
         if self.root is None:
             return None
         else:
-            r=self.min()
             maxNode=self.root
             while maxNode:
                 if maxNode.right is not None:
                     maxNode=maxNode.right
+                else:
                     break                
             return maxNode.value
+    def secondlargest(self):
+        if self.root is None or (self.root.left is None and self.root.right is None):
+            return None  # No hay suficiente nodos para tener un segundo más grande
+    
+        maxNode = self.root
+        parent = None
+    
+        while maxNode.right is not None:
+            parent = maxNode
+            maxNode = maxNode.right
+    
+    # Si el máximo tiene un subárbol izquierdo
+        if maxNode.left is not None:
+            maxNode = maxNode.left
+            while maxNode.right is not None:
+                maxNode = maxNode.right
+            return maxNode.value
+    
+    # Si no tiene subárbol izquierdo, el padre es el segundo más grande
+        return parent.value
+    
+    def search(self,value):
+        if self.root is None:
+            return False
+        else:
+            searchNode=self.root
+            t=False
+            while searchNode:
+                if searchNode is not None and searchNode.value < value:
+                    searchNode=searchNode.right
+                elif searchNode is not None and searchNode.value > value:
+                    searchNode=searchNode.left
+                elif searchNode.value==value:
+                    t=True
+                    break
+            return t
+
+    
+    
          
 
 bst = BinarySearchTree()
@@ -117,8 +156,10 @@ bst.insert(5)
 bst.insert(15)
 bst.insert(3)
 bst.insert(7)
+bst.insert(17)
 
 ##print(bst.lookup(7))  
 
 print(bst.min())  
 print(bst.largest())
+print(bst.search(10))
