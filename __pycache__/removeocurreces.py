@@ -2,10 +2,8 @@
 
 def ocuur(a,n):
     sum=0
-    left=0
-    right=1
-    while right < len(a):
-        if a[left]==n and a[right]!=n:
-            a[right], a[left] = a[left], a[right]
-            left+=1
-            right+=1
+    for i in range(len(a)):
+        if a[i]!=n:
+            sum+=1
+    return sum
+print(ocuur([2,2,1,2,4,2],2))
