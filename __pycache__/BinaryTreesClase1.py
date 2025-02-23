@@ -26,6 +26,7 @@ class BinarySearchTree:
                         current_node.right = new_node
                         return self
                     current_node = current_node.right
+
     def lookup(self,value):
         if self.root is None:
             return False
@@ -140,14 +141,42 @@ class BinarySearchTree:
                     searchNode=searchNode.right
                 elif searchNode is not None and searchNode.value > value:
                     searchNode=searchNode.left
-                elif searchNode.value==value:
+                else:
                     t=True
                     break
             return t
-
     
+    def reverseTree(self,nodo):
+        if nodo is None:
+            return self.root
+        else:
+            nodo.left, nodo.right=nodo.right, nodo.left
+            self.reverseTree(nodo.left)  # Recursión en el hijo izquierdo
+            self.reverseTree(nodo.right) 
+            return nodo
+    def reverseFullTree(self):
+        self.reverseTree(self.root)
+    def imprimirArbol(self,node,nivel=0):
+        nivel=0
+        if node is not None:
+            # Primero imprimir los hijos derechos (si los hay)
+            self.imprimirArbol(node.right, nivel + 1)
+            
+            # Luego imprimir el nodo actual con una indentación basada en su nivel
+            print(' ' * 4 * nivel + '->', node.value)
+            
+            # Finalmente imprimir los hijos izquierdos
+            self.imprimirArbol(node.left, nivel + 1)
+    def imprimirInorden(self, nodo):
+        if nodo is None:
+            return
+        self.imprimirInorden(nodo.left)  # Recursión sobre el hijo izquierdo
+        print(nodo.value, end=' ')  # Imprimir el valor del nodo
+        self.imprimirInorden(nodo.right)  # Recursión sobre el hijo derecho
     
-         
+    def imprimir(self):
+        self.imprimirInorden(self.root)
+    
 
 bst = BinarySearchTree()
 
@@ -157,9 +186,11 @@ bst.insert(15)
 bst.insert(3)
 bst.insert(7)
 bst.insert(17)
-
+print(bst.imprimir())
 ##print(bst.lookup(7))  
-
+#print(bst.imprimirArbol(Node(10)))
 print(bst.min())  
 print(bst.largest())
-print(bst.search(10))
+print(bst.search(8))
+print(bst.reverseFullTree())
+print(bst.imprimir())
