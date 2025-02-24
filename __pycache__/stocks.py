@@ -15,4 +15,4 @@ def stocks(a):
                 max=sum
             right+=1
     return max
-print(stocks([1, 2, 1, 3, 6, 8, 2]))
+print(stocks([7,1,5,3,6,4]))
