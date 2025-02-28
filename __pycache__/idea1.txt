@@ -1,0 +1,27 @@
+while right<len(l):
+        print(l)
+        if l[left]==1 and l[right]==0 and t>0:
+            sum+=1
+            l[right]=1
+            t-=1
+            left+=1
+            right+=1
+        elif l[left]==1 and l[right]==1 and t>0:
+            sum+=1
+            t-=1
+            left+=1
+            right+=1
+        elif t==0 and l[left]==1:
+            sum+=1
+            left+=1
+            right+=1
+        elif t==0 and l[right]==0:
+            max1=max(sum,max1)
+            t=k
+            sum=0
+            left=right
+            right+=1
+        else:
+            left+=1
+            right+=1
+    return max1
