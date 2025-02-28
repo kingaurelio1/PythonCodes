@@ -26,7 +26,7 @@ def es_conexa(grafica):
 
 #Vamos a definir una función que te regrese el arbol generador de una gráfica simple cualquiera
 def arbol_generador(grafica):
-    n = len(grafica)  # Número de nodos en el grafo
+    n = len(grafica)  # Número de nodos en la gráfica
     visitado = [False] * n  # Lista para saber si un nodo ha sido visitado
     matriz_adyacencia = [[0] * n for _ in range(n)]  # Inicializamos la matriz de adyacencia
 
@@ -52,12 +52,12 @@ def arbol_generador(grafica):
 
         return subarbol
 
-    # Si el grafo es conexo, generamos el árbol generador
+    # Si la gráfica es conexo, generamos el árbol generador
     if es_conexa(grafica):
         bfs(0)  # Realizamos un BFS desde el nodo 0 para obtener el árbol generador
         return matriz_adyacencia  # Retornamos la matriz de adyacencia del árbol generador
     else:
-        # Si el grafo no es conexo, generamos el bosque generador
+        # Si la gráfica no es conexa, generamos el bosque generador
         for vertice in range(n):
             if not visitado[vertice]:  # Si el nodo no ha sido visitado
                 bfs(vertice)  # Llamamos a BFS desde ese nodo para generar el árbol del componente conexo
@@ -73,7 +73,7 @@ grafica1 = [
 
 print(arbol_generador(grafica1))
 
-# Ejemplo de grafo no conexo
+# Ejemplo de una gráfica no conexa
 grafica2 = [
     [0, 1, 0, 0, 0],  
     [1, 0, 0, 0, 0],  
