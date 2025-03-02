@@ -176,6 +176,9 @@ class BinarySearchTree:
     
     def imprimir(self):
         self.imprimirInorden(self.root)
+
+    def depth(self,node):
+        pass
     
 
 bst = BinarySearchTree()
