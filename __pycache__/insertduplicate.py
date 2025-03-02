@@ -5,25 +5,20 @@ def insert(l,k):
     m=[]
     count=0
     while i<len(l):
-        print(l)
         if l[i]!=k:
             i+=1
         else:
+            l.pop()
             count+=1
-            l.pop()
             i+=1
-    for k in range(count):
-        l.append(0)
-    while j < len(l):
-        print(j,l)
+    while j<len(l):
         if l[j]==k:
-            l.pop()
-            l=l[0:j+1]+[0]+l[j+1::]
+            m.append(k)
+            m.append(k)
             j+=1
         else:
+            m.append(l[j])
             j+=1
-    
-    
-    return l
-print(insert([1, 0, 2, 3, 0, 4, 5, 0],0))
+    return m
+print(insert([1, 0, 2, 3,0,4,5,67,8],0))
     
