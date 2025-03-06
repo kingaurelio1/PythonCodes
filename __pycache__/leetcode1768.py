@@ -12,10 +12,10 @@ def MergeStr(s1,s2):
         while pointer1<len(s2):
             s+=s1[pointer1]+s2[pointer1]
             pointer1+=1
-        s+=s2[pointer1::]
+        s+=s1[pointer1::]
     else:
         while pointer1<len(s1):
             s+=s1[pointer1]+s2[pointer1]
             pointer1+=1
     return s
-print(MergeStr("ab","pqrs"))
+print(MergeStr("abcd","pq"))
