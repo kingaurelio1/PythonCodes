@@ -7,7 +7,7 @@ def sums(a,t):
         elif a[left] + a[right] > t:
             right-=1
         else:
-            return left,right
+            return [left,right]
     return -1
 #Solo funciona si es ordenado.
 def sums1(a,t):
