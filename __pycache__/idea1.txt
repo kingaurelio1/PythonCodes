@@ -25,3 +25,7 @@ while right<len(l):
             left+=1
             right+=1
     return max1
+
+                right-=1
+                a[left],a[right]=a[right],a[left]
+                left+=1
