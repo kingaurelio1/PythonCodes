@@ -8,17 +8,13 @@ def Rotate(a,k):
         a[l],a[r]=a[r],a[l]
         l+=1
         r-=1
-    print(a)
     l,r=0,k-1
     while l<r:
-        print(a)
         a[l],a[r]=a[r],a[l]
         l+=1
         r-=1
-    print(a)
     l,r=k,len(a)-1
     while l < r:
-        print(a)
         a[l],a[r]=a[r],a[l]
         l+=1
         r-=1

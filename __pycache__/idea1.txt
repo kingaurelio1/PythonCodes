@@ -29,3 +29,18 @@ while right<len(l):
                 right-=1
                 a[left],a[right]=a[right],a[left]
                 left+=1
+            print(a)
+        if l<m:
+            if r<n:
+                if a[l]< b[r]:
+                    a[l]=a[l]
+                    l+=1
+                else:
+                    a[l]=b[r]
+                    r+=1
+            else:
+                a[l]=b[l]
+                l+=1
+        else:
+            a[r]=b[r]
+            r+=1
