@@ -4,18 +4,23 @@ def Rotate(a,k):
     k=k%len(a)
     l,r=0,len(a)-1
     while l < r:
+        print(a)
         a[l],a[r]=a[r],a[l]
         l+=1
         r-=1
+    print(a)
     l,r=0,k-1
     while l<r:
+        print(a)
         a[l],a[r]=a[r],a[l]
         l+=1
         r-=1
+    print(a)
     l,r=k,len(a)-1
     while l < r:
+        print(a)
         a[l],a[r]=a[r],a[l]
         l+=1
         r-=1
     return a
-print(Rotate([1,2,3,4,5,6,7,8,9,10],12))
+print(Rotate([1,2,3,4,5],2))
