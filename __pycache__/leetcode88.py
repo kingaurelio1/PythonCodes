@@ -6,23 +6,30 @@
 
 def mergearray(a,m,b,n):
     l,r=0,0
-    if n==0:
-        return a
-    else:   
-        while l < len(a):
-            if l<m:
+    c=[]
+    if n==0: return a
+    elif m==0: return b
+    else:
+        l,r=0,0
+        temp=0
+        while l<m:
+            if r<n:
                 if a[l] < b[r]:
-                    a[l]=a[l]
+                    c.append(a[l])
                     l+=1
                 else:
-                    a[l],b[r]=b[r],a[l]
-                    l+=1
-            else:
-                if r<n:
-                    a[l]=b[r]
+                    c.append(b[r])
                     r+=1
+            else:
+                if a[l]!=0:
+                    c.append(a[l])
                     l+=1
                 else:
                     l+=1
-    return a
-print(mergearray([1],1,[],0))
+        if r < n:
+            while r < n:
+                c.append(b[r])
+                r+=1
+    return c
+print(mergearray([1,2,3,0,0,0,0],3,[-3,-2,-1,0],4))
+#Resuelto en una complejidad de tiempo O(m+n) pero no O(m+n) espacial

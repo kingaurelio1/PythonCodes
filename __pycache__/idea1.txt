@@ -44,3 +44,28 @@ while right<len(l):
         else:
             a[r]=b[r]
             r+=1
+
+        while l < len(a):
+            print(a,b)
+            if l<m:
+                if r<n:
+                    if a[l] < b[r]:
+                        a[l]=a[l]
+                        l+=1
+                    else:
+                        a[l],b[r]=b[r],a[l]
+                        l+=1
+                        r+=1
+                else:
+                    l=0
+                    r=0
+            else:
+                if r<n:
+                    a[l]=b[r]
+                    r+=1
+                    l+=1
+                else:
+                    r=0
+def merge(a,b):
+    
+    if len(a) < len(b)
