@@ -31,5 +31,40 @@ def mergearray(a,m,b,n):
                 c.append(b[r])
                 r+=1
     return c
-print(mergearray([1,2,3,0,0,0,0],3,[-3,-2,-1,0],4))
+print(mergearray([1,2,3,0,0],3,[-3,-1],2))
 #Resuelto en una complejidad de tiempo O(m+n) pero no O(m+n) espacial
+
+def mergearray2(a,m,b,n):
+    l,r=0,0
+    if n==0: return a
+    elif m==0: return b
+    else:
+        while r < n:
+            a[m+r]=b[r]
+            r+=1
+        if a[m]>=0: 
+            while l < m:
+                if a[l]<a[r]:
+                    l+=1
+                else:
+                    a[l],a[r]=a[r],a[l]
+                    l+=1
+            return a
+        else:
+            r=m
+            while r<m+n:
+                if a[l]<a[r]:
+                    l+=1
+                else:
+                    a[l],a[r]=a[r],a[l]
+                    r+=1
+            return a
+print(mergearray2([1,2,3,0,0,0],3,[-3,-1,7],3))
+
+##def mergearray3(a,m,b,n):
+    #l,r=0,m+n-1
+    #if n==0: return a
+    #elif m==0: return b
+    #else:
+        #while l <= r:
+            #if

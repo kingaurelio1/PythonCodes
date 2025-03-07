@@ -67,5 +67,12 @@ while right<len(l):
                 else:
                     r=0
 def merge(a,b):
-    
+
     if len(a) < len(b)
+
+                print(a)
+            if a[l]<a[r]:
+                l+=1
+            else:
+                a[l],a[r]=a[r],a[l]
+                r-=1
