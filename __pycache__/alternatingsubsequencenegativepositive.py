@@ -22,4 +22,4 @@ def Alternating(a):
             l.append(negatives.popleft())
         counter+=1
     return l
-print(Alternating([1, 2, 3, -4, -1, 4]))
+print(Alternating([1, 2, 3, -4, -1, -14,-16,-7]))
