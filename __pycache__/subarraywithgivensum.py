@@ -9,10 +9,9 @@ def subarray(a,s):
             sums+=a[r]
             r+=1
         elif s < sums:
+            sums-=a[l]
             l+=1
-            r=l+1
-            sums=a[l]
         elif sums==s:
-            return [l+1,r]
+            return [l,r]
     return -1
-print(subarray([15, 2, 4, 8, 5, 10],23))
+print(subarray([15,2,4,6,8,8,9],28))
