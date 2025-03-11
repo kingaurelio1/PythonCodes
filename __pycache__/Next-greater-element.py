@@ -125,4 +125,4 @@ def NGE3(a):
             else:
                 t.pop()
     return a
-print(NGE3([5,4,3,2,1]))
+print(NGE3([1, 3, 2, 4]))
