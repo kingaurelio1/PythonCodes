@@ -1,6 +1,6 @@
 import math
 #Given an integer array, the task is to find the maximum product of any subarray.
-
+#primera idea
 def maxproduct(a):
     product=1
     max1 = -math.inf
