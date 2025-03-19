@@ -1,15 +1,17 @@
 #Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
 import time
 def squared(a):
-    start=time.time()
-    left=0
-    right=len(a)-1
-    for i in range(len(a)):
-        a[i]=a[i]**2
-    while 0<right:
-        if a[left]<a[right]:
-            right-=1
+    l,r=0,len(a)-1
+    t=[0]*len(a)
+    i=len(a)-1
+    while l <= r:
+        if a[l]**2 > a[r]**2:
+            t[i]=a[l]**2
+            l+=1
+            i-=1
         else:
-            a[left],a[right]=a[right],a[left]
-    end=time.time()
-    return a,(1000*(end-start))
+            t[i]=a[r]**2
+            r-=1
+            i-=1
+    return t
+print(squared([-7,-3,2,3,11]))

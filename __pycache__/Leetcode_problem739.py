@@ -1,7 +1,3 @@
-#Given an array arr[] of integers, the task is to find the Next Greater Element for each element of the array in order of their appearance in the array. 
-#Note: The Next Greater Element for an element x is the first greater element on the right side of x in the array. Elements for which no greater element exist, consider the next greater element as -1. 
-#primera idea
-
 class Node:
     def __init__(self, value):
         self.value = value
@@ -42,8 +38,6 @@ class Stack:
             return None
 
         return self.head.next.value
-
-    # Push a value into the stack.
     def push(self, value):
         node = Node(value)
         node.next = self.head.next # Make the new node point to the current head
@@ -59,70 +53,27 @@ class Stack:
         self.head.next = remove.next #!!! changed
         self.size -= 1
         return remove.value
-def NGE(a):
-    l=0
-    r=1
-    while l<len(a):
-        print(a,l,r)
-        if l==len(a)-1:
-            a[l]=-1
-            break
-        elif r==len(a)-1 and a[l] >= a[r]:
-            a[l]=-1
-            l+=1
-            r=l+1
-        elif r==len(a)-1 and a[l] < a[r]:
-            a[l]=a[r]
-            l+=1
-            r=l+1
-        elif a[l]<a[r]:
-            a[l]=a[r]
-            l+=1
-            r=l+1
-        elif a[l]>=a[r]:
-            r+=1
-    return a
-#print(NGE( [6, 8, 0, 1, 3]))
-#No funciona
-
-#Segunda idea:
-def NGE2(a):
-    t=Stack()
-    for i in range(len(a)):
-        t.push(a[i])
-    pointer=len(a)-1
-    while pointer >-1:
-        print(a,t.size,t.peek(),pointer,a[pointer])
-        if a[pointer] < t.peek():
-            a[pointer]=t.peek()
-            t.pop()
-            pointer-=1
-        else:
-            if t.size-2 <= pointer:
-                a[pointer]=-1
-            else:
-                t.pop()
-            pointer-=1
-    return a
-#print(NGE2( [1,4,3,6]))
-
-
-#Tercera idea:
-def NGE3(a):
+def dailyTemperatures(a):
     t=Stack()
     pointer=len(a)-1
+    sum1=1
     while pointer>-1:
+        print(t)
         if t.size==0:
-            t.push(a[pointer])
+            t.push([a[pointer],pointer])
             a[pointer]=0
             pointer-=1
+            sum1=1
         else:
-            if a[pointer] < t.peek():
-                k=a[pointer]
-                a[pointer]=t.peek()
+            if a[pointer] < t.peek()[0]:
+                k=[a[pointer],pointer]
+                a[pointer]=t.peek()[1] - pointer
                 t.push(k)
                 pointer-=1
+                sum1=1
             else:
                 t.pop()
+                sum1+=1
+                print(t,a[pointer])
     return a
-print(NGE3([1, 3, 2, 4]))
+print(dailyTemperatures([73,74,75,71,69,72,76,73]))
